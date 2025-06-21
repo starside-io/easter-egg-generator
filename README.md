@@ -130,6 +130,48 @@ Or load asynchronously:
 </script>
 ```
 
+## Troubleshooting
+
+### "Cannot find module 'webpack'" Error
+
+If you encounter a webpack module error after installation:
+
+```bash
+# Uninstall and reinstall globally
+npm uninstall -g easter-egg-generator
+npm install -g easter-egg-generator
+
+# Or for local installation
+npm uninstall easter-egg-generator
+npm install easter-egg-generator
+```
+
+This ensures all required dependencies (including webpack) are properly installed.
+
+### Permission Issues on macOS/Linux
+
+If you get permission errors during global installation:
+
+```bash
+# Use sudo (not recommended)
+sudo npm install -g easter-egg-generator
+
+# Or configure npm to use a different directory (recommended)
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.profile
+source ~/.profile
+npm install -g easter-egg-generator
+```
+
+### Node.js Version Issues
+
+Make sure you're using Node.js 18.0.0 or higher:
+
+```bash
+node --version  # Should show v18.0.0 or higher
+```
+
 ## Development
 
 ### Setup
