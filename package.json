@@ -1,0 +1,75 @@
+{
+  "name": "easter-egg-generator",
+  "version": "1.0.0",
+  "description": "A CLI tool to generate JavaScript easter eggs for websites",
+  "packageManager": "npm@10.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "easter-egg-generator": "./dist/index.js",
+    "egg-gen": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:tsc",
+    "build:tsc": "tsc",
+    "dev": "tsx src/index.ts",
+    "dev:interactive": "tsx src/index.ts --interactive",
+    "dev:test": "tsx src/test-dev.ts",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist .turbo",
+    "type-check": "tsc --noEmit",
+    "lint": "echo 'No linting configured'",
+    "test": "echo 'No tests configured'",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "easter-egg",
+    "javascript",
+    "cli",
+    "web",
+    "generator",
+    "yargs",
+    "typescript"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/easter-egg-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/easter-egg-generator/issues"
+  },
+  "homepage": "https://github.com/username/easter-egg-generator#readme",
+  "type": "commonjs",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^12.6.3",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.8",
+    "@types/node": "^24.0.3",
+    "@types/yargs": "^17.0.33",
+    "babel-loader": "^10.0.0",
+    "tsx": "^4.20.3",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
+}
