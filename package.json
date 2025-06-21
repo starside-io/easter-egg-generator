@@ -1,6 +1,6 @@
 {
   "name": "easter-egg-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI tool to generate JavaScript easter eggs for websites",
   "packageManager": "npm@10.0.0",
   "main": "dist/index.js",

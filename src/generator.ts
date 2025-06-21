@@ -421,6 +421,11 @@ ${website ? `// Website: ${website}` : ''}
 
 async function bundleJavaScript(inputPath: string, outputPath: string): Promise<void> {
   return new Promise((resolve, reject) => {
+    // Get the path to this package's node_modules
+    const packageDir = path.dirname(require.resolve('../package.json'));
+    const nodeModulesPath = path.join(packageDir, 'node_modules');
+    const presetEnvPath = require.resolve('@babel/preset-env');
+    
     const config: webpack.Configuration = {
       entry: path.resolve(inputPath),
       output: {
@@ -428,6 +433,12 @@ async function bundleJavaScript(inputPath: string, outputPath: string): Promise<
         filename: path.basename(outputPath),
       },
       mode: 'production' as const,
+      resolveLoader: {
+        modules: [nodeModulesPath, 'node_modules']
+      },
+      resolve: {
+        modules: [nodeModulesPath, 'node_modules']
+      },
       module: {
         rules: [
           {
@@ -436,7 +447,7 @@ async function bundleJavaScript(inputPath: string, outputPath: string): Promise<
             use: {
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env']
+                presets: [presetEnvPath]
               }
             }
           }
