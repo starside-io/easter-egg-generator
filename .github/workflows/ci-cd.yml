@@ -30,7 +30,7 @@ jobs:
       run: npm ci
       
     - name: Run type check
-      run: npm run type-check:tsc
+      run: npm run type-check
       
     - name: Build project
       run: npm run build:tsc
